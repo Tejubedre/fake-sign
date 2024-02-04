@@ -1,9 +1,10 @@
+<!-- result.html content -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Sign Detection Result</title>
+    <title>Result - Fake Sign Detection</title>
     <style>
         body {
             margin: 0;
@@ -15,21 +16,25 @@
             align-items: center;
             background: linear-gradient(to bottom right, #3498db, #e74c3c); /* Enhanced gradient colors */
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        p {
-            text-align: center;
+            font-size: 2em;
         }
 
         img {
             max-width: 100%;
+            height: auto;
             margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.2em;
         }
 
         nav {
@@ -38,22 +43,23 @@
         }
 
         nav a {
-            margin: 0 10px;
+            margin: 0 15px;
             color: #fff;
             text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Result</h1>
-    {% if is_fake %}
-        <p>The sign is fake!</p>
-    {% else %}
-        <p>The sign is genuine.</p>
-    {% endif %}
-    <img src="{{ image_path }}" alt="Uploaded Image">
+    <h1>Result - Fake Sign Detection</h1>
+    <img src="{{ image_path }}" alt="Uploaded Sign Image">
+    <p>
+        The uploaded sign is {% if is_fake %}fake{% else %}not fake{% endif %}.
+        <br>
+        Loading time: {{ loading_time }} seconds.
+    </p>
     <nav>
-        <a href="/">Home</a>
+        <a href="/">Back to Home</a>
         <a href="/about">About Us</a>
         <a href="/contact">Contact Us</a>
         <a href="/services">Our Services</a>
@@ -61,5 +67,7 @@
     </nav>
 </body>
 </html>
+
+
 
 
